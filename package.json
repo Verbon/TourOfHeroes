@@ -1,8 +1,8 @@
 {
-  "name": "path_saver",
+  "name": "tour_of_heroes",
   "version": "1.0.0",
-  "description": "Simple file saver to database",
-  "main": "./bin/dev/app.js",
+  "description": "Tour of heroes angular demo electron app",
+  "main": "./bin/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
