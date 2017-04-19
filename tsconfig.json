@@ -13,6 +13,7 @@
         "noImplicitThis": true,
         "noUnusedLocals": true,
         "alwaysStrict": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "experimentalDecorators": true
     }
 }
