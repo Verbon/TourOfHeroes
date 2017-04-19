@@ -1,0 +1,44 @@
+{
+  "name": "path_saver",
+  "version": "1.0.0",
+  "description": "Simple file saver to database",
+  "main": "./bin/dev/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladislav Narutsky",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/electron": "^1.4.35",
+    "@types/node": "^7.0.12",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.1.2",
+    "css-loader": "^0.28.0",
+    "electron": "^1.6.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "gulp": "^3.9.1",
+    "gulp-delete-lines": "0.0.7",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.16.1",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "@angular/common": "^4.0.2",
+    "@angular/compiler": "^4.0.2",
+    "@angular/core": "^4.0.2",
+    "@angular/forms": "^4.0.2",
+    "@angular/http": "^4.0.2",
+    "@angular/platform-browser": "^4.0.2",
+    "@angular/platform-browser-dynamic": "^4.0.2",
+    "@angular/router": "^4.0.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.3.0",
+    "zone.js": "^0.8.5"
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../bin",
+        "typeRoots": [
+            "../node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "app",
+        "./*.json"
+    ],
+    "include": [
+        "./*.ts"
+    ]
+}
