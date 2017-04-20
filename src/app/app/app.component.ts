@@ -21,12 +21,12 @@ export class AppComponent implements OnInit {
 
 
     constructor(private heroService: HeroService) {
-        this.title = 'Tour of Heroes';        
+        this.title = 'Tour of Heroes';
     }
 
 
-    public ngOnInit(): void {
-        this.heroes = this.heroService.getHeroes();
+    public async ngOnInit(): Promise<void> {
+        this.heroes = await this.heroService.getHeroesAsync();
     }
 
     public onSelect(hero: Hero): void {
