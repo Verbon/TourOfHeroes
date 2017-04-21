@@ -16,9 +16,12 @@ import { HeroService } from './hero.service';
         RouterModule.forRoot([
             {
                 path: 'heroes',
-                component: HeroesComponent
+                component: HeroesComponent                
             }
-        ])
+        ],
+        {
+            useHash: true
+        })
     ],
     declarations: [
         AppComponent,
