@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
+import { DashboardComponent } from './dashboard.component';
 import { HeroService } from './hero.service';
 
 
@@ -14,9 +15,12 @@ import { HeroService } from './hero.service';
         BrowserModule,
         FormsModule,
         RouterModule.forRoot([
+            createRoute('heroes', HeroesComponent),
+            createRoute('dashboard', DashboardComponent),
             {
-                path: 'heroes',
-                component: HeroesComponent                
+                path: '',
+                redirectTo: '/dashboard',
+                pathMatch: 'full'
             }
         ],
         {
@@ -25,6 +29,7 @@ import { HeroService } from './hero.service';
     ],
     declarations: [
         AppComponent,
+        DashboardComponent,
         HeroesComponent,
         HeroDetailComponent
     ],
@@ -37,4 +42,11 @@ import { HeroService } from './hero.service';
 })
 export class AppModule {
 
+}
+
+function createRoute(path: string, component: any): Route {
+    return {
+        path: path,
+        component: component
+    };
 }
