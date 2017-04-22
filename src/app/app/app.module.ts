@@ -15,6 +15,7 @@ import { HeroService } from './hero.service';
         BrowserModule,
         FormsModule,
         RouterModule.forRoot([
+            createRoute('detail/:id', HeroDetailComponent),
             createRoute('heroes', HeroesComponent),
             createRoute('dashboard', DashboardComponent),
             {
