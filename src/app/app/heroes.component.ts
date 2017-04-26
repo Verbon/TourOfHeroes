@@ -18,6 +18,8 @@ export class HeroesComponent implements OnInit {
 
     public selectedHero: Hero;
 
+    public newHeroName: string;
+
 
     constructor(
         private heroService: HeroService,
@@ -36,5 +38,23 @@ export class HeroesComponent implements OnInit {
 
     public goToDetails(): void {
         this.router.navigate(['/detail', this.selectedHero.id]);
+    }
+
+    public async add(): Promise<void> {
+        let name = this.newHeroName.trim();
+        if(!name) {
+            return;
+        }
+
+        await this.heroService.create(name);
+        this.selectedHero = null;
+        this.newHeroName = '';
+    }
+
+    public async delete(hero: Hero): Promise<void> {
+        await this.heroService.delete(hero.id);
+        if(this.selectedHero === hero) {
+            this.selectedHero = null;
+        }
     }
 }
