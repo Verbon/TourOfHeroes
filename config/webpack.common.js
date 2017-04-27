@@ -9,7 +9,9 @@ module.exports = {
         'vendor': './src/app/vendor.ts',
         'index': './src/app/index.ts'
     },
-    
+
+    target: 'electron-renderer',
+
     resolve: {
         extensions: ['.ts', '.js']
     },
