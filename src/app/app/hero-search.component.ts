@@ -25,7 +25,7 @@ export class HeroSearchComponent implements OnInit {
 
     public heroes: Observable<Hero[]>;
 
-
+
     constructor(
         private heroSearchService: HeroSearchService,
         private router: Router) {
