@@ -1,4 +1,4 @@
-import { Hero } from './domain-model/hero';
+import { Hero } from '../domain-model/hero';
 
 export const Heroes: Hero[] = [
     new Hero(11, 'Mr. Nice'),

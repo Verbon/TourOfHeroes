@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import { Hero } from './domain-model/hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../../domain-model/hero';
+import { HeroService } from '../hero.service';
 
 
 @Component({

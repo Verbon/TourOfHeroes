@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Hero } from './domain-model/hero';
+import { Hero } from '../domain-model/hero';
 import { HeroService } from './hero.service';
 
 
-import '../assets/css/styles.css';
+import '../../assets/css/styles.css';
 
 
 @Component({
