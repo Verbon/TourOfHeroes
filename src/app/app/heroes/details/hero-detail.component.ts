@@ -34,4 +34,8 @@ export class HeroDetailComponent implements OnInit {
     public goBack(): void {
         this.location.back();
     }
+
+    public async save(): Promise<void> {
+        await this.heroService.updateAsync(this.hero);
+    }
 }

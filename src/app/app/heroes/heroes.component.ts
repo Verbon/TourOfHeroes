@@ -29,7 +29,7 @@ export class HeroesComponent implements OnInit {
 
 
     public async ngOnInit(): Promise<void> {
-        this.heroes = await this.heroService.getHeroesAsync();
+        await this.refreshAsync();
     }
 
     public onSelect(hero: Hero): void {
@@ -46,15 +46,24 @@ export class HeroesComponent implements OnInit {
             return;
         }
 
-        await this.heroService.create(name);
+        await this.heroService.createAsync(name);
         this.selectedHero = null;
         this.newHeroName = '';
+
+        await this.refreshAsync();
     }
 
     public async delete(hero: Hero): Promise<void> {
-        await this.heroService.delete(hero.id);
+        await this.heroService.deleteAsync(hero.id);
         if(this.selectedHero === hero) {
             this.selectedHero = null;
         }
+
+        await this.refreshAsync();
+    }
+
+
+    private async refreshAsync(): Promise<void> {
+        this.heroes = await this.heroService.getHeroesAsync();
     }
 }

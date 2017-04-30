@@ -10,6 +10,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './heroes/dashboard/dashboard.component';
 import { HeroService } from './heroes/hero.service';
 import { HeroSearchComponent } from './heroes/search/hero-search.component';
+import { TourOfHeroesUnitOfWorkFactory } from './repositories/tour-of-heroes-unit-of-work-factory';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HeroSearchComponent } from './heroes/search/hero-search.component';
         HeroSearchComponent
     ],
     providers: [
-        HeroService
+        HeroService,
+        TourOfHeroesUnitOfWorkFactory
     ],
     bootstrap: [
         AppComponent

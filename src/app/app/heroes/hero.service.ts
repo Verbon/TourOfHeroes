@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 
 import { Hero } from '../domain-model/hero';
-import { Heroes } from './mock-heroes';
+import { TourOfHeroesUnitOfWorkFactory } from '../repositories/tour-of-heroes-unit-of-work-factory';
+
 
 @Injectable()
 export class HeroService {
+    constructor(
+        private tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
+
+    }
+
+
     public async getHeroAsync(id: number): Promise<Hero> {
         let heroes = await this.getHeroesAsync();
 
@@ -12,34 +19,42 @@ export class HeroService {
     }
 
     public async getHeroesAsync(predicate?: (hero: Hero) => boolean): Promise<Hero[]> {
-        let heroes = await Promise.resolve(Heroes);
-        if(predicate) {
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
+        let heroesRepository = await uow.getHeroesRepositoryAsync();
+
+        let heroes = await heroesRepository.getAllAsync();
+        if (predicate) {
             heroes = heroes.filter(predicate);
         }
 
         return heroes;
     }
 
-    public create(name: string): Promise<Hero> {
-        let heroesIds = Heroes.map(h => h.id);
+    public async createAsync(name: string): Promise<Hero> {
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
+        let heroesRepository = await uow.getHeroesRepositoryAsync();
+
+        let heroes = await heroesRepository.getAllAsync();
+        let heroesIds = heroes.map(h => h.id);
         let maxId = Math.max(...heroesIds);
         let hero = new Hero(++maxId, name);
 
-        Heroes.push(hero);
+        await heroesRepository.insertAsync(hero);
 
-        return Promise.resolve(hero);
+        return hero;
     }
 
-    public delete(id: number): Promise<void> {
-        for(let i = 0; i < Heroes.length; ) {
-            if(Heroes[i].id === id) {
-                Heroes.splice(i, 1);
-            }
-            else {
-                i++;
-            }
-        }
+    public async updateAsync(hero: Hero): Promise<void> {
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
+        let heroesRepository = await uow.getHeroesRepositoryAsync();
 
-        return Promise.resolve();
+        await heroesRepository.updateAsync(hero);
+    }
+
+    public async deleteAsync(id: number): Promise<void> {
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
+        let heroesRepository = await uow.getHeroesRepositoryAsync();
+
+        await heroesRepository.deleteAsync([id]);
     }
 }
