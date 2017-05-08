@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         'polyfills': './src/app/polyfills.ts',
         'vendor': './src/app/vendor.ts',
-        'index': './src/app/index.ts'
+        'main': './src/app/main.ts'
     },
 
     target: 'electron-renderer',
