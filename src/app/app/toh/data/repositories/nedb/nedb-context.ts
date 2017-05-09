@@ -2,30 +2,26 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as NedbDatastore from 'nedb';
 
+import { DbContext } from "../../../common/data/repositories/db-context";
 
-export class DbContext {
+
+export class NeDbContext extends DbContext {
     private readonly DbFilePath: string;
 
 
     constructor(dbFileName: string) {
+        super();
+
         this.DbFilePath = path.join(__dirname, 'db', `${dbFileName}.db.json`);
     }
 
 
-    public insertAsync<T>(entity: T): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
+    public getAllAsync<T>(): Promise<T[]> {
+        return this.findAsync<T>({});
+    }
 
-            let db = this.openConnection();
-            db.insert<T>(entity, (err, entities) => {
-                if (err) {
-                    reject(err);
-                }
-                else {
-                    resolve();
-                }
-            });
-
-        });
+    public getWhereAsync<T>(predicate: (entity: T) => boolean): Promise<T[]> {
+        throw new Error("Method not implemented. Use findAsync(query) instead.");
     }
 
     public findAsync<T>(query: any): Promise<T[]> {
@@ -44,7 +40,33 @@ export class DbContext {
         });
     }
 
-    public updateAsync(query: any, updateQuery: any): Promise<void> {
+    public insertAsync<T>(entity: T): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+
+            let db = this.openConnection();
+            db.insert<T>(entity, (err, entities) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    resolve();
+                }
+            });
+
+        });
+    }
+
+    public async insertAllAsync<T>(entities: T[]): Promise<void> {
+        for(let entity of entities) {
+            await this.insertAsync<T>(entity);
+        }
+    }
+
+    public updateAsync<T>(entity: T): Promise<void> {
+        throw new Error("Method not implemented. Use updateWithQueryAsync(query, updateQuery) instead.");
+    }
+
+    public updateWithQueryAsync(query: any, updateQuery: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
 
             let db = this.openConnection();
@@ -60,7 +82,11 @@ export class DbContext {
         });
     }
 
-    public deleteAsync(query: any): Promise<void> {
+    public deleteAsync<T>(entity: T): Promise<void> {
+        throw new Error("Method not implemented. User deleteWithQueryAsync(query) instead.");
+    }
+
+    public deleteWithQueryAsync(query: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
 
             let db = this.openConnection();

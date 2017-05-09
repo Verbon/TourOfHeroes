@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+
 import 'rxjs/add/operator/switchMap';
 
-import { Hero } from '../../domain-model/hero';
-import { HeroService } from '../hero.service';
+import { Hero } from "../../../core/domain-model/hero";
+import { HeroesService } from "../../foundation/heroes/heroes.service";
+
 
 @Component({
     selector: 'hero-detail',
@@ -16,7 +18,7 @@ export class HeroDetailComponent implements OnInit {
 
 
     constructor(
-        private heroService: HeroService,
+        private heroService: HeroesService,
         private route: ActivatedRoute,
         private location: Location
     ) {

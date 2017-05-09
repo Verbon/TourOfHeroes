@@ -1,5 +1,6 @@
 import { Hero } from './hero';
 
+
 export const Heroes: Hero[] = [
     new Hero(11, 'Mr. Nice'),
     new Hero(12, 'Narco'),

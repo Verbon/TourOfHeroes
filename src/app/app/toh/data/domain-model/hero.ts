@@ -1,4 +1,4 @@
-import { Entity } from './entity';
+import { Entity } from "../../common/data/domain-model/entity";
 
 
 export class Hero extends Entity {

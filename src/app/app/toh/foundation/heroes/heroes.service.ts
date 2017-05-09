@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { Hero } from '../domain-model/hero';
-import { TourOfHeroesUnitOfWorkFactory } from '../repositories/tour-of-heroes-unit-of-work-factory';
+import { Hero } from "../../../core/domain-model/hero";
+import { TourOfHeroesUnitOfWorkFactory } from "../../../core/repositories/tour-of-heroes-unit-of-work-factory.service";
 
 
 @Injectable()
-export class HeroService {
+export class HeroesService {
     constructor(
-        private tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
+        private readonly tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
 
     }
 

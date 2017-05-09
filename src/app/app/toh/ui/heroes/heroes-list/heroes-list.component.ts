@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Hero } from '../domain-model/hero';
-import { HeroService } from './hero.service';
+import '../../../assets/css/styles.css';
 
-
-import '../../assets/css/styles.css';
+import { Hero } from "../../../core/domain-model/hero";
+import { HeroesService } from "../../foundation/heroes/heroes.service";
 
 
 @Component({
@@ -22,7 +21,7 @@ export class HeroesComponent implements OnInit {
 
 
     constructor(
-        private heroService: HeroService,
+        private heroService: HeroesService,
         private router: Router) {
 
     }

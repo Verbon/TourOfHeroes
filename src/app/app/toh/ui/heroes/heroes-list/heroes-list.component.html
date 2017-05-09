@@ -12,7 +12,7 @@
 </ul>
 <div *ngIf="selectedHero">
     <h2>
-        {{selectedHero.name | uppercase}} is my hero
+        {{selectedHero.name | uppercase | kebab}} is my hero
     </h2>
     <button (click)="goToDetails()">View Details</button>
 </div>

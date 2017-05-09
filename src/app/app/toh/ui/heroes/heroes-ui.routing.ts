@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Route } from '@angular/router';
 
-import { HeroDetailComponent } from './heroes/details/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { DashboardComponent } from './heroes/dashboard/dashboard.component';
+import { DashboardComponent } from "./ui/dashboard/dashboard.component";
+import { HeroDetailComponent } from "./ui/hero-detail/hero-detail.component";
+import { HeroesComponent } from "./ui/heroes/heroes.component";
+
 
 const routes: Routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     createRoute('dashboard', DashboardComponent),
     createRoute('detail/:id', HeroDetailComponent),
     createRoute('heroes', HeroesComponent)
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true })],
-    exports: [RouterModule]
+    imports: [
+        RouterModule.forChild(routes)
+    ],
+    exports: [
+        RouterModule
+    ]
 })
-export class AppRoutingModule {
+export class HeroesRoutingModule {
 
 }
+
 
 function createRoute(path: string, component: any): Route {
     return {
