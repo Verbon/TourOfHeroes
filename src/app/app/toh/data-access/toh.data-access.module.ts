@@ -8,6 +8,6 @@ import { TourOfHeroesUnitOfWorkFactory } from './repositories/tour-of-heroes-uni
         TourOfHeroesUnitOfWorkFactory
     ]
 })
-export class TohDataModule {
+export class TohDataAccessModule {
 
 }

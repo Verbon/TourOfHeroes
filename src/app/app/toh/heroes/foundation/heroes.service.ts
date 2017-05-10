@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Hero } from "../../../core/domain-model/hero";
-import { TourOfHeroesUnitOfWorkFactory } from "../../../core/repositories/tour-of-heroes-unit-of-work-factory.service";
+import { Hero } from './../../data-access/domain-model/hero';
+import { TourOfHeroesUnitOfWorkFactory } from './../../data-access/repositories/tour-of-heroes-unit-of-work-factory.service';
 
 
 @Injectable()
@@ -55,6 +55,6 @@ export class HeroesService {
         let uow = this.tourOfHeroesUnitOfWorkFactory.create();
         let heroesRepository = await uow.getHeroesRepositoryAsync();
 
-        await heroesRepository.deleteAsync([id]);
+        await heroesRepository.deleteByIdsAsync([id]);
     }
 }

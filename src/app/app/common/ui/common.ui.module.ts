@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { KebabPipe } from './kebab.pipe';
+import { KebabPipe } from './string-transforms/kebab.pipe';
 
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
     declarations: [
         KebabPipe
     ],
@@ -18,6 +15,6 @@ import { KebabPipe } from './kebab.pipe';
         KebabPipe
     ]
 })
-export class SharedModule {
+export class CommonUiModule {
 
 }

@@ -4,15 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { CoreModule } from './core/core.module';
-import { HeroesModule } from './heroes/heroes.module';
+import { TohModule } from './toh/toh.module';
 
 
 @NgModule({
     imports: [
         BrowserModule,
-        CoreModule,
-        HeroesModule,
+        TohModule,
         AppRoutingModule
     ],
     declarations: [

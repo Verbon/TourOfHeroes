@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from "../../../core/domain-model/hero";
-import { HeroesService } from "../../foundation/heroes/heroes.service";
+import { Hero } from './../../../data-access/domain-model/hero';
+import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
 
     constructor(
-        private heroService: HeroesService) {
+        private readonly heroService: HeroesService) {
 
     }
 

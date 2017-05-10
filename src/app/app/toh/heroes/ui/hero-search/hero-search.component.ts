@@ -5,12 +5,11 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/observable/of';
-
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Hero } from "../../../core/domain-model/hero";
+import { Hero } from './../../../data-access/domain-model/hero';
 import { HeroSearchService } from "../../foundation/hero-search/hero-search.service";
 
 

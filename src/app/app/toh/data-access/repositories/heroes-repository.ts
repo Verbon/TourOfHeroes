@@ -1,6 +1,6 @@
 import { Hero } from "../domain-model/hero";
 import { Heroes } from '../domain-model/mock-heroes';
-import { Repository } from "../../common/data/repositories/repository";
+import { Repository } from '../../../common/data-access/repositories/repository';
 import { NeDbContext } from './nedb/nedb-context';
 
 

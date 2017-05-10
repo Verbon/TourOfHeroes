@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 
-
-import { Hero } from "../../../core/domain-model/hero";
-import { HeroesService } from "../heroes/heroes.service";
+import { Hero } from './../../../data-access/domain-model/hero';
+import { HeroesService } from './../heroes.service';
 
 
 @Injectable()

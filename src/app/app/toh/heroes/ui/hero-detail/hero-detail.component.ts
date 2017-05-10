@@ -4,8 +4,8 @@ import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
-import { Hero } from "../../../core/domain-model/hero";
-import { HeroesService } from "../../foundation/heroes/heroes.service";
+import { Hero } from './../../../data-access/domain-model/hero';
+import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
@@ -18,11 +18,9 @@ export class HeroDetailComponent implements OnInit {
 
 
     constructor(
-        private heroService: HeroesService,
-        private route: ActivatedRoute,
-        private location: Location
-    ) {
-
+        private readonly heroService: HeroesService,
+        private readonly route: ActivatedRoute,
+        private readonly location: Location) {
 
     }
 

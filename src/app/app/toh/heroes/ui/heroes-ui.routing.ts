@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Route } from '@angular/router';
 
-import { DashboardComponent } from "./ui/dashboard/dashboard.component";
-import { HeroDetailComponent } from "./ui/hero-detail/hero-detail.component";
-import { HeroesComponent } from "./ui/heroes/heroes.component";
+import { HeroesListComponent } from './heroes-list/heroes-list.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
     createRoute('dashboard', DashboardComponent),
     createRoute('detail/:id', HeroDetailComponent),
-    createRoute('heroes', HeroesComponent)
+    createRoute('heroes', HeroesListComponent)
 ];
 
 @NgModule({

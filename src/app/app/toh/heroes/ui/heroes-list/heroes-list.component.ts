@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import '../../../assets/css/styles.css';
+import '../../../../../assets/css/styles.css';
 
-import { Hero } from "../../../core/domain-model/hero";
-import { HeroesService } from "../../foundation/heroes/heroes.service";
+import { Hero } from './../../../data-access/domain-model/hero';
+import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
     selector: 'my-heroes',
-    templateUrl: './heroes.component.html',
-    styleUrls: ['./heroes.component.css']
+    templateUrl: './heroes-list.component.html',
+    styleUrls: ['./heroes-list.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesListComponent implements OnInit {
     public heroes: Hero[];
 
     public selectedHero: Hero;
@@ -21,8 +21,8 @@ export class HeroesComponent implements OnInit {
 
 
     constructor(
-        private heroService: HeroesService,
-        private router: Router) {
+        private readonly heroService: HeroesService,
+        private readonly router: Router) {
 
     }
 

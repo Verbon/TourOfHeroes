@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as NedbDatastore from 'nedb';
 
-import { DbContext } from "../../../common/data/repositories/db-context";
+import { DbContext } from "../../../../common/data-access/repositories/db-context";
 
 
 export class NeDbContext extends DbContext {
