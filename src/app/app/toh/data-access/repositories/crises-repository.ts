@@ -1,10 +1,10 @@
-import { Hero } from "../domain-model/hero";
-import { Heroes } from '../domain-model/mock-heroes';
+import { Crisis } from './../domain-model/crisis';
+import { Crises } from './../domain-model/mock-crises';
 import { NeDbContext } from "../../../common/data-access/repositories/nedb/nedb-context";
 import { NeDbRepository } from "../../../common/data-access/repositories/nedb/nedb-repository";
 
 
-export class HeroesRepository extends NeDbRepository<Hero> {
+export class CrisesRepository extends NeDbRepository<Crisis> {
     constructor(neDbContext: NeDbContext) {
         super(neDbContext);
     }
@@ -12,8 +12,8 @@ export class HeroesRepository extends NeDbRepository<Hero> {
 
     public async initAsync(): Promise<void> {
         let databaseExists = await this.NeDbContext.checkIfDatabaseExistsAsync();
-        if (!databaseExists) {
-            await super.insertAllAsync(Heroes);
+        if(!databaseExists) {
+            await super.insertAllAsync(Crises);
         }
     }
 }
