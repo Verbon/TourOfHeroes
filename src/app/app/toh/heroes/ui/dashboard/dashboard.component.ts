@@ -5,7 +5,6 @@ import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
-    selector: 'my-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css']
 })

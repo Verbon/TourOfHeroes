@@ -1,7 +1,7 @@
-import { TourOfHeroesUnitOfWorkFactory } from './../../data-access/repositories/tour-of-heroes-unit-of-work-factory.service';
 import { Injectable } from '@angular/core';
 
 import { Crisis } from './../../data-access/domain-model/crisis';
+import { TourOfHeroesUnitOfWorkFactory } from './../../data-access/repositories/tour-of-heroes-unit-of-work-factory.service';
 
 
 @Injectable()

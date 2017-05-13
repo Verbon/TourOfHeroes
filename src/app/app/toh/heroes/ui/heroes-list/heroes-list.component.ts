@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import '../../../../../assets/css/styles.css';
 
@@ -8,7 +8,6 @@ import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
-    selector: 'my-heroes',
     templateUrl: './heroes-list.component.html',
     styleUrls: ['./heroes-list.component.css']
 })
@@ -22,6 +21,7 @@ export class HeroesListComponent implements OnInit {
 
     constructor(
         private readonly heroService: HeroesService,
+        private readonly route: ActivatedRoute,
         private readonly router: Router) {
 
     }
@@ -29,10 +29,13 @@ export class HeroesListComponent implements OnInit {
 
     public async ngOnInit(): Promise<void> {
         await this.refreshAsync();
+
+        this.selectedHero = this.heroes.find(h => h.id === +this.route.snapshot.params['id']);
     }
 
     public onSelect(hero: Hero): void {
         this.selectedHero = hero;
+        this.goToDetails();
     }
 
     public goToDetails(): void {
