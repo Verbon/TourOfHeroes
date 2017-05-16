@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -27,6 +27,7 @@ export class HeroSearchComponent implements OnInit {
 
     constructor(
         private heroSearchService: HeroSearchService,
+        private readonly route: ActivatedRoute,
         private router: Router) {
 
     }
@@ -54,8 +55,6 @@ export class HeroSearchComponent implements OnInit {
      }
 
      public goToDetail(hero: Hero): void {
-         let link = ['/detail', hero.id];
-
-         this.router.navigate(link);
+         this.router.navigate([hero.id], { relativeTo: this.route });
      }
 }

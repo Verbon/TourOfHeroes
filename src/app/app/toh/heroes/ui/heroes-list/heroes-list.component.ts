@@ -39,7 +39,7 @@ export class HeroesListComponent implements OnInit {
     }
 
     public goToDetails(): void {
-        this.router.navigate(['/detail', this.selectedHero.id]);
+        this.router.navigate(['../', this.selectedHero.id], { relativeTo: this.route });
     }
 
     public async add(): Promise<void> {

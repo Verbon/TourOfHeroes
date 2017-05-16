@@ -5,10 +5,10 @@ import { HeroesService } from './../../foundation/heroes.service';
 
 
 @Component({
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.css']
+    templateUrl: './heroes-dashboard.component.html',
+    styleUrls: ['./heroes-dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class HeroesDashboardComponent implements OnInit {
     public heroes: Hero[] = [];
 
 

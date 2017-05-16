@@ -44,7 +44,7 @@ export class HeroDetailComponent implements OnInit {
 
     public goBack(): void {
         let selectedHeroId = this.hero ? this.hero.id : null;
-        this.router.navigate(['/heroes', { id: selectedHeroId }]);
+        this.router.navigate(['../list', { id: selectedHeroId }], { relativeTo: this.route });
     }
 
     public async save(): Promise<void> {

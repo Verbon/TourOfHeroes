@@ -8,6 +8,6 @@ import { CrisisService } from './crisis.service';
         CrisisService
     ]
 })
-export class CrisisServicesModule {
+export class CrisisCenterServicesModule {
 
 }

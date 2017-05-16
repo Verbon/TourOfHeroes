@@ -1,15 +1,22 @@
+import { HeroesComponent } from './heroes/heroes.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Route } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
+import { HeroesDashboardComponent } from './heroes-dashboard/heroes-dashboard.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
-    createRoute('dashboard', DashboardComponent),
-    createRoute('detail/:id', HeroDetailComponent),
-    createRoute('heroes', HeroesListComponent)
+    {
+        path: 'heroes',
+        component: HeroesComponent,
+        children: [
+            { path: '', component: HeroesDashboardComponent },
+            { path: 'list', component: HeroesListComponent },
+            { path: ':id', component: HeroDetailComponent }
+        ]
+    }
 ];
 
 @NgModule({
@@ -22,12 +29,4 @@ const routes: Routes = [
 })
 export class HeroesRoutingModule {
 
-}
-
-
-function createRoute(path: string, component: any): Route {
-    return {
-        path: path,
-        component: component
-    };
 }

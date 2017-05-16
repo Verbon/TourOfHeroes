@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { CommonUiModule } from './../../../common/ui/common.ui.module';
 import { HeroesRoutingModule } from './heroes-ui.routing';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
+import { HeroesDashboardComponent } from './heroes-dashboard/heroes-dashboard.component';
 
 
 @NgModule({
@@ -15,8 +16,9 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
         HeroesRoutingModule
     ],
     declarations: [
+        HeroesComponent,
         HeroesListComponent,
-        DashboardComponent,
+        HeroesDashboardComponent,
         HeroDetailComponent,
         HeroSearchComponent
     ]
