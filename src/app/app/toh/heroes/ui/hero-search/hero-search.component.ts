@@ -55,6 +55,6 @@ export class HeroSearchComponent implements OnInit {
      }
 
      public goToDetail(hero: Hero): void {
-         this.router.navigate([hero.id], { relativeTo: this.route });
+         this.router.navigate(['../../', hero.id], { relativeTo: this.route });
      }
 }
