@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { SlideInDownTransition } from './../../../../common/ui/transitions/slide-in-down.animation';
 
@@ -35,10 +35,11 @@ export class CrisisDetailComponent implements OnInit {
 
 
     public ngOnInit(): void {
-        this.route.data
-            .subscribe((data: { crisis: Crisis }) => {
-                this.editName = data.crisis.name;
-                this.crisis = data.crisis;
+        this.route.params
+            .subscribe((params: Params) => {
+                let crisis = params['crisis'];
+                this.editName = crisis.name;
+                this.crisis = crisis;
             });
     }
 
