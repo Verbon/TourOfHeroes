@@ -7,7 +7,7 @@ import { TourOfHeroesUnitOfWorkFactory } from './../../data-access/repositories/
 @Injectable()
 export class CrisisService {
     constructor(
-        private readonly tourOfHeroesUnitofWorkFactory: TourOfHeroesUnitOfWorkFactory) {
+        private readonly tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
 
     }
 
@@ -19,7 +19,7 @@ export class CrisisService {
     }
 
     public async getCrisesAsync(predicate?: (crisis: Crisis) => boolean): Promise<Crisis[]> {
-        let uow = this.tourOfHeroesUnitofWorkFactory.create();
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
         let crisesRepository = await uow.getCrisesRepositoryAsync();
 
         let crises = await crisesRepository.getAllAsync();
@@ -28,5 +28,12 @@ export class CrisisService {
         }
 
         return crises;
+    }
+
+    public async updateAsync(crisis: Crisis): Promise<void> {
+        let uow = this.tourOfHeroesUnitOfWorkFactory.create();
+        let crisesRepository = await uow.getCrisesRepositoryAsync();
+
+        await crisesRepository.updateAsync(crisis);
     }
 }

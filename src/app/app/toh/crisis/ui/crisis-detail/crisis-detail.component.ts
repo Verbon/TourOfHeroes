@@ -1,5 +1,8 @@
+import { CrisisService } from './../../foundation/crisis.service';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+
+import 'rxjs/add/operator/switchMap';
 
 import { SlideInDownTransition } from './../../../../common/ui/transitions/slide-in-down.animation';
 
@@ -28,6 +31,7 @@ export class CrisisDetailComponent implements OnInit {
 
 
     constructor(
+        private readonly crisisService: CrisisService,
         private readonly route: ActivatedRoute,
         private readonly router: Router) {
 
@@ -36,10 +40,10 @@ export class CrisisDetailComponent implements OnInit {
 
     public ngOnInit(): void {
         this.route.params
-            .subscribe((params: Params) => {
-                let crisis = params['crisis'];
+            .switchMap((params: Params) => this.crisisService.getCrisisAsync(+params['id']))
+            .subscribe(crisis => {
+                this.crisis = crisis
                 this.editName = crisis.name;
-                this.crisis = crisis;
             });
     }
 
@@ -47,8 +51,9 @@ export class CrisisDetailComponent implements OnInit {
         this.goToCrises();
     }
 
-    public save(): void {
+    public async save(): Promise<void> {
         this.crisis.name = this.editName;
+        await this.crisisService.updateAsync(this.crisis);
         this.goToCrises();
     }
 

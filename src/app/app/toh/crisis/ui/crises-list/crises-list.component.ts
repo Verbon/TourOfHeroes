@@ -14,7 +14,6 @@ import { Crisis } from './../../../data-access/domain-model/crisis';
 })
 export class CrisisListComponent implements OnInit {
     public crises: Observable<Crisis[]>;
-
     public selectedId: number;
 
 
@@ -42,6 +41,6 @@ export class CrisisListComponent implements OnInit {
     public onSelect(crisis: Crisis): void {
         this.selectedId = crisis.id;
 
-        this.router.navigate([crisis.id, { crisis: crisis }], { relativeTo: this.route });
+        this.router.navigate([crisis.id], { relativeTo: this.route });
     }
 }
