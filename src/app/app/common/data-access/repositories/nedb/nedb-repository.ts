@@ -9,6 +9,7 @@ export class NeDbRepository<T extends Entity> extends Repository<T> {
         super(NeDbContext);
     }
 
+
     public getWhereAsync(predicate: (entity: T) => boolean): Promise<T[]> {
         throw new Error("Method not implemented. Use findAsync(query) instead.");
     }

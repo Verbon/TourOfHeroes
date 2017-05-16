@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { CommonUiModule } from './../../../common/ui/common.ui.module';
+import { CommonUiModule } from './../../../common/ui/common-ui.module';
 import { CrisisCenterRoutingModule } from './crisis-center-ui.routing';
 
 import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-home.component';
