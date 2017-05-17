@@ -12,11 +12,13 @@ const routes: Routes = [
         path: 'crisis-center',
         component: CrisesCenterComponent,
         children: [
+            { path: '', redirectTo: 'list', pathMatch: 'full' },
             {
-                path: '',
+                path: 'list',
                 component: CrisisListComponent,
                 children: [
-                    { path: '', component: CrisisCenterHomeComponent },
+                    { path: '', redirectTo: 'home', pathMatch: 'full' },
+                    { path: 'home', component: CrisisCenterHomeComponent },
                     { path: ':id', component: CrisisDetailComponent }
                 ]
             }
