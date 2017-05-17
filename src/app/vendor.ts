@@ -8,3 +8,4 @@ import '@angular/forms';
 
 import 'nedb';
 import 'rxjs';
+import 'lodash';
