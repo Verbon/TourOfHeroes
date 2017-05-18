@@ -10,7 +10,7 @@ export class AppComponent {
     public title: string;
 
 
-    constructor() {
+    public constructor() {
         this.title = 'Tour of Heroes';
     }
 }

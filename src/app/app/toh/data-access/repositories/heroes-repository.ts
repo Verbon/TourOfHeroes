@@ -5,7 +5,7 @@ import { NeDbRepository } from "../../../common/data-access/repositories/nedb/ne
 
 
 export class HeroesRepository extends NeDbRepository<Hero> {
-    constructor(neDbContext: NeDbContext) {
+    public constructor(neDbContext: NeDbContext) {
         super(neDbContext);
     }
 

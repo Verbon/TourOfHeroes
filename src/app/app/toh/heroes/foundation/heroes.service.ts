@@ -6,7 +6,7 @@ import { TourOfHeroesUnitOfWorkFactory } from './../../data-access/repositories/
 
 @Injectable()
 export class HeroesService {
-    constructor(
+    public constructor(
         private readonly tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
 
     }

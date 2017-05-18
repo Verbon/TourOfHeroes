@@ -1,5 +1,5 @@
 export class EventArgs {
-    constructor() {
+    public constructor() {
 
     }
 }

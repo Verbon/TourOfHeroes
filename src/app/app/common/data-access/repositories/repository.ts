@@ -3,7 +3,7 @@ import { DbContext } from './db-context';
 
 
 export class Repository<T extends Entity> {
-    constructor(
+    public constructor(
         protected readonly DbContext: DbContext) {
 
     }

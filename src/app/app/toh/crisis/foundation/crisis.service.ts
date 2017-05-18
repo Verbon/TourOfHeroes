@@ -17,7 +17,7 @@ export class CrisisService {
     }
 
 
-    constructor(
+    public constructor(
         private readonly tourOfHeroesUnitOfWorkFactory: TourOfHeroesUnitOfWorkFactory) {
 
     }

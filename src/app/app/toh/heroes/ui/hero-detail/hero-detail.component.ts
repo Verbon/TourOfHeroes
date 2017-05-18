@@ -28,7 +28,7 @@ export class HeroDetailComponent implements OnInit {
     public hero: Hero;
 
 
-    constructor(
+    public constructor(
         private readonly heroService: HeroesService,
         private readonly route: ActivatedRoute,
         private readonly router: Router) {

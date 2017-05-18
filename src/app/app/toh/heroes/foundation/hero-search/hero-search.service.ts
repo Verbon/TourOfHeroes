@@ -9,7 +9,7 @@ import { HeroesService } from './../heroes.service';
 
 @Injectable()
 export class HeroSearchService {
-    constructor(
+    public constructor(
         private readonly heroService: HeroesService) {
 
     }

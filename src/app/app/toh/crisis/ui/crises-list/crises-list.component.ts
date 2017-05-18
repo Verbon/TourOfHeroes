@@ -20,7 +20,7 @@ export class CrisisListComponent implements OnInit, OnDestroy {
     public selectedId: number;
 
 
-    constructor(
+    public constructor(
         private readonly crisisService: CrisisService,
         private readonly route: ActivatedRoute,
         private readonly router: Router) {

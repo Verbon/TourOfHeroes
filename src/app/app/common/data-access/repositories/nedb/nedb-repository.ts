@@ -4,7 +4,7 @@ import { NeDbContext } from './nedb-context';
 
 
 export class NeDbRepository<T extends Entity> extends Repository<T> {
-    constructor(
+    public constructor(
         protected readonly NeDbContext: NeDbContext) {
         super(NeDbContext);
     }

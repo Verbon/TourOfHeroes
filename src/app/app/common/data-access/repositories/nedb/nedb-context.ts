@@ -9,7 +9,7 @@ export class NeDbContext extends DbContext {
     private readonly DbFilePath: string;
 
 
-    constructor(dbFileName: string) {
+    public constructor(dbFileName: string) {
         super();
 
         this.DbFilePath = path.join(__dirname, 'db', `${dbFileName}.db.json`);

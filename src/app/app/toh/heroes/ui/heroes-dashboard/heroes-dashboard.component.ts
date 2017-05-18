@@ -12,7 +12,7 @@ export class HeroesDashboardComponent implements OnInit {
     public heroes: Hero[] = [];
 
 
-    constructor(
+    public constructor(
         private readonly heroService: HeroesService) {
 
     }

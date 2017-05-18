@@ -30,7 +30,7 @@ export class CrisisDetailComponent implements OnInit {
     public editName: string;
 
 
-    constructor(
+    public constructor(
         private readonly crisisService: CrisisService,
         private readonly route: ActivatedRoute,
         private readonly router: Router) {

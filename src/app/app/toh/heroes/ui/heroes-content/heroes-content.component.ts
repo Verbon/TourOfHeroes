@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./heroes-content.component.css']
 })
 export class HeroesContentComponent implements OnInit {
-    constructor() {
+    public constructor() {
 
     }
 

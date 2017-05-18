@@ -19,7 +19,7 @@ export class HeroesListComponent implements OnInit {
     public newHeroName: string;
 
 
-    constructor(
+    public constructor(
         private readonly heroService: HeroesService,
         private readonly route: ActivatedRoute,
         private readonly router: Router) {
