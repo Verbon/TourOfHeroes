@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonServicesModule } from './common/foundation/common-services.module';
 import { CommonUiModule } from './common/ui/common-ui.module';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { TohModule } from './toh/toh.module';
 
 @NgModule({
     imports: [
+        CommonServicesModule,
         CommonUiModule,
         BrowserModule,
         TohModule,
