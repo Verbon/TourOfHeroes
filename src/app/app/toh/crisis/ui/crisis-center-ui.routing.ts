@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CanDeactivateGuard } from './../../../common/ui/navigation/can-deactivate.guard';
+
 import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-home.component';
 import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 import { CrisisListComponent } from './crises-list/crises-list.component';
@@ -19,7 +21,7 @@ const routes: Routes = [
                 children: [
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
                     { path: 'home', component: CrisisCenterHomeComponent },
-                    { path: ':id', component: CrisisDetailComponent }
+                    { path: ':id', component: CrisisDetailComponent, canDeactivate: [CanDeactivateGuard] }
                 ]
             }
         ]

@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanAc
 
 import { Observable } from 'rxjs/Observable';
 
-import { AuthenticationDemoService } from './authentication-demo.service';
+import { AuthenticationDemoService } from './../../foundation/authentication/authentication-demo.service';
 
 
 @Injectable()

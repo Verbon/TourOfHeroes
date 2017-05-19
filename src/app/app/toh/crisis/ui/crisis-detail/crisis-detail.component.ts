@@ -1,12 +1,15 @@
-import { CrisisService } from './../../foundation/crisis.service';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { SlideInDownTransition } from './../../../../common/ui/transitions/slide-in-down.animation';
+import { IDeactivationAware } from './../../../../common/ui/navigation/deactivation-aware';
+import { DialogService } from './../../../../common/ui/dialogs/dialog.service';
 
 import { Crisis } from './../../../data-access/domain-model/crisis';
+import { CrisisService } from './../../foundation/crisis.service';
 
 
 @Component({
@@ -17,7 +20,7 @@ import { Crisis } from './../../../data-access/domain-model/crisis';
         SlideInDownTransition
     ]
 })
-export class CrisisDetailComponent implements OnInit {
+export class CrisisDetailComponent implements OnInit, IDeactivationAware {
     @HostBinding('@slide-in-down-transition')
     public routeAnimation = true;
     @HostBinding('style.display')
@@ -33,7 +36,8 @@ export class CrisisDetailComponent implements OnInit {
     public constructor(
         private readonly crisisService: CrisisService,
         private readonly route: ActivatedRoute,
-        private readonly router: Router) {
+        private readonly router: Router,
+        private readonly dialogService: DialogService) {
 
     }
 
@@ -45,6 +49,14 @@ export class CrisisDetailComponent implements OnInit {
                 this.crisis = crisis
                 this.editName = crisis.name;
             });
+    }
+
+    public canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+        if(!this.crisis || this.crisis.name === this.editName) {
+            return true;
+        }
+
+        return this.dialogService.confirm('Discard changes?');
     }
 
     public cancel(): void {
