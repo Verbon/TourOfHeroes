@@ -17,6 +17,7 @@ const routes: Routes = [
         children: [
             {
                 path: '',
+                canActivateChild: [AuthenticationGuard],
                 children: [
                     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
                     { path: 'crises', component: ManageCrisesComponent },

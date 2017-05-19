@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild } from "@angular/router";
 
 import { Observable } from 'rxjs/Observable';
 
@@ -7,7 +7,7 @@ import { AuthenticationDemoService } from './authentication-demo.service';
 
 
 @Injectable()
-export class AuthenticationGuard implements CanActivate {
+export class AuthenticationGuard implements CanActivate, CanActivateChild {
     public constructor(
         private readonly authenticationService: AuthenticationDemoService,
         private readonly router: Router) {
@@ -19,6 +19,11 @@ export class AuthenticationGuard implements CanActivate {
         let url: string = state.url;
 
         return this.checkLogin(url);
+    }
+
+    public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+        console.log('can activate child called');
+        return this.canActivate(childRoute, state);
     }
 
 
