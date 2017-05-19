@@ -1,7 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { SlideInDownTransition } from './../../../../common/ui/transitions/slide-in-down.animation';
@@ -43,20 +42,19 @@ export class CrisisDetailComponent implements OnInit, IDeactivationAware {
 
 
     public ngOnInit(): void {
-        this.route.params
-            .switchMap((params: Params) => this.crisisService.getCrisisAsync(+params['id']))
-            .subscribe(crisis => {
-                this.crisis = crisis
-                this.editName = crisis.name;
+        this.route.data
+            .subscribe((data: { crisis: Crisis }) => {
+                this.editName = data.crisis.name;
+                this.crisis = data.crisis;
             });
     }
 
-    public canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+    public async canDeactivate(): Promise<boolean> {
         if(!this.crisis || this.crisis.name === this.editName) {
             return true;
         }
 
-        return this.dialogService.confirm('Discard changes?');
+        return await this.dialogService.confirm('Discard changes?');
     }
 
     public cancel(): void {
