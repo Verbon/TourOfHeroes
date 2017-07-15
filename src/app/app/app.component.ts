@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    public title: string;
+    public readonly title: string;
 
 
     public constructor() {
