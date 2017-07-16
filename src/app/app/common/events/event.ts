@@ -1,22 +1,22 @@
 import { EventArgs } from './event-args';
-import { IEventHandler } from './event-handler';
+import { EventHandler } from './event-handler';
 
 
 export interface IEvent<T extends EventArgs> {
-    subscribe(eventHandler: IEventHandler<T>): void;
+    subscribe(eventHandler: EventHandler<T>): void;
 
-    unsubscribe(eventHandler: IEventHandler<T>): void;
+    unsubscribe(eventHandler: EventHandler<T>): void;
 }
 
 export class Event<T extends EventArgs> implements IEvent<T> {
-    private readonly eventHandlers: IEventHandler<T>[] = [];
+    private readonly eventHandlers: EventHandler<T>[] = [];
 
 
-    public subscribe(eventHandler: IEventHandler<T>): void {
+    public subscribe(eventHandler: EventHandler<T>): void {
         this.eventHandlers.push(eventHandler);
     }
 
-    public unsubscribe(eventHandler: IEventHandler<T>): void {
+    public unsubscribe(eventHandler: EventHandler<T>): void {
         let eventHandlerIndex = this.eventHandlers.indexOf(eventHandler);
 
         this.eventHandlers.splice(eventHandlerIndex, 1);
