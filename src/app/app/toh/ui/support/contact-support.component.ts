@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SlideInDownTransition } from "../common/animations/slide-in-down.animation";
+import { SlideInDownTransition } from "../../../common/animations/slide-in-down.animation";
 
 
 @Component({

@@ -1,11 +1,9 @@
-import { ContactSupportComponent } from './support/contact-support.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'heroes', pathMatch: 'full' },
-    { path: 'contact-support', component: ContactSupportComponent, outlet: 'support' }
+    { path: '', redirectTo: 'heroes', pathMatch: 'full' }
 ];
 
 @NgModule({
