@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -37,8 +37,8 @@ export class HeroDetailComponent implements OnInit {
 
 
     public ngOnInit(): void {
-        this.route.params
-            .switchMap((params: Params) => this.heroService.getHeroAsync(+params['id']))
+        this.route.paramMap
+            .switchMap((params: ParamMap) => this.heroService.getHeroAsync(+params['id']))
             .subscribe(hero => this.hero = hero);
     }
 
